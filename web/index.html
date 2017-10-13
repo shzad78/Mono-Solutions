@@ -1,0 +1,45 @@
+
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+   <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web App</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/angular/angular-csp.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+<head>
+<body>
+    <nav class="navbar navbar-default mainBar" >
+      <div  class="container-fluid" ng-controller ="mainController" >
+      <div class="navbar-header" >
+      <a class=" whiteFont navbar-brand" href="/">My Web App</a>
+      </div>
+      <ul class="nav navbar-nav" >
+        <li ng-class="{active: activetab=='/'}"><a class="whiteFont" ng-href="/">Home</a></li>
+        <li ng-class="{active: activetab=='/about'}"><a class="whiteFont" ng-href="about">About</a></li>
+        <li ng-class="{active: activetab=='/contact'}"><a class="whiteFont" ng-href="contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div id="google_translate_element" class ="pull-right" ng-cloak></div>
+    <noscript>
+     <META HTTP-EQUIV="Refresh" CONTENT="0;URL=Njs/homeNjs.html">
+   </noscript>
+    <div ng-view> </div>
+  </div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script data-require="angular-translate@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-translate/bower-angular-translate/2.5.0/angular-translate.js"></script>
+  <script src="app.js"></script>
+
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+  }
+  </script>
+
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

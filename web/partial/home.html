@@ -1,0 +1,66 @@
+<div class="fluid-container" ng-cloak >
+  <div class="row_fluid">
+		<div class="rigt-pane nopadding col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color:white;height:auto;">
+			<div class="row text-center" ng-show="hasError && errorMessage">
+				<span style="color:red;font-size:12px;" class="text-center">
+					Error! {{errorMessage}}
+				</span>
+			</div>
+			<form  name="user_form" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style ="margin-top:30px" novalidate>
+				<fieldset>
+					<legend>Enter User Details</legend>
+					<div class="row-fluid">
+						<div class="form-group col-lg-6 col-md-6 col-sm-6" style="margin-top: 2%;">
+							<label for="firstname">First name</label>
+							<span class="required-indicator" title="Required field">*</span>
+							<span class="validation-msg" ng-show="settings.submitted && user_form.firstname.$error.required">(First name is required)</span>
+							<span class="validation-msg" ng-show="settings.submitted && user_form.firstname.$error.pattern">(Numbers are not allowed in first name)</span>
+							<input id="firstname" class="form-control " type="text" ng-model="user.firstname" name="firstname" autocomplete="off" ng-pattern="/[\a-zA-Z]+/" required>
+						</div>
+						<div class="form-group col-lg-6 col-md-6 col-sm-6" style="margin-top: 2%;">
+							<label for="lastname">Last name</label>
+							<span class="required-indicator" title="Required field">*</span>
+							<span class="validation-msg" ng-show="settings.submitted && user_form.lastname.$error.required">(Last name is required)</span>
+							<span class="validation-msg" ng-show="settings.submitted && user_form.lastname.$error.pattern">(Numbers are not allowed in last name)</span>
+							<input id="lastname" class="form-control " type="text" ng-model="user.lastname" name="lastname" autocomplete="off" ng-pattern="/[\a-zA-Z]+/" required>
+						</div>
+					</div>
+					<div class="row-fluid">
+						<div class="form-group col-lg-6 col-md-6 col-sm-6" style="margin-top: 2%;">
+							<label for="email">Email</label>
+							<span class="required-indicator" title="Required field">*</span>
+							<span class="validation-msg" ng-show="settings.submitted && user_form.email.$error.required">(Email is required)</span>
+							<span class="validation-msg" ng-show="settings.submitted && user_form.email.$error.pattern">(Invalid email)</span>
+							<input id="email" class="form-control " type="text" ng-model="user.email" name="email" autocomplete="off"
+							ng-pattern="/^([A-Za-z0-9_\.\-\ÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¡¿çÇŒœßØøÅåÆæÞþÐð]+)@([\dA-Za-z\.\-ÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¡¿çÇŒœßØøÅåÆæÞþÐð]+)\.([A-Za-z\.ÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¡¿çÇŒœßØøÅåÆæÞþÐð]{2,6})$/" required>
+						</div>
+						<div class="form-group col-lg-6 col-md-6 col-sm-6"style="margin-top: 2%;">
+							<label for="phone">Phone</label>
+							<span class="validation-msg" ng-show="settings.submitted && user_form.phone.$error.pattern">(Alphabets are not allowed as phone number)</span>
+							<input id="phone" class="form-control " type="phone" name="phone" ng-model="user.phone" autocomplete="off" ng-pattern="/^[0-9\-]*$/" />
+						</div>
+					</div>
+          <div class="row-fluid" >
+            <div class="form-group col-lg-6 col-md-6 col-sm-6" style="margin-top: 2%;">
+              <label for="password">Password</label>
+              <span class="required-indicator" title="Required field">*</span>
+              <span class="validation-msg" ng-show="hasError && error.password">(Password is required)</span>
+              <input id="password" name="password" type="password" ng-model="user.password" class="form-control " autocomplete="off">
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6" style="margin-top: 2%;">
+              <label for="password_confirm">Confirm password</label>
+              <span class="required-indicator" title="Required field">*</span>
+              <span class="validation-msg" ng-show="hasError && error.password_confirm">(Please confirm your password)</span>
+              <input id="password_confirm" name="password_confirm" ng-model="user.password_confirm" type="password" class="form-control " autocomplete="off">
+            </div>
+          </div>
+				</fieldset>
+
+			<div class="">
+				<span  style="font-size:11px;color:red;position:absolute;top:0.5%;" ></span>
+				<button class="btn btn-default pull-right whiteFont purpleBack" type="submit" ng-click="ok()" style="margin:1.5%;">Save Changes</button>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
